@@ -1,0 +1,73 @@
+# #9
+your goal is to send a GET request to /pentesterlab with the following GET parameter key twice.
+        curl '{base}/page?key=val&key=val'
+        
+# #10
+your goal is to send a POST request to /pentesterlab with the following POST parameter key twice.
+    curl {base}/page --data 'key=val&key=val'
+
+# #11
+your goal is to send a POST request to /pentesterlab with the following GET parameter key with the value please and the following POST parameter 
+        key with the value please
+    curl '{base}/page?key=val' --data 'key=val'
+  
+# #12
+your goal is to send a GET request to /pentesterlab with the following GET parameter: key with the value =please
+    curl {base}/page?key=%3dval'
+    
+# #13
+your goal is to send a GET request to /pentesterlab with the following GET parameter: key with the value please&
+    end with %26 in borwser
+    
+# #14
+your goal is to send a GET request to /pentesterlab with the following GET parameter: ?key with the value please
+    curl '{base}/page?%3fkey=val'
+
+# #15
+ your goal is to send a GET request to /pentesterlab with the following GET parameter: key with the value
+    url encode space [%20]
+
+# #16
+your goal is to send a GET request to /pentesterlab with the following GET parameter: key with the value please#
+    url encode # -->  curl '{base}/page/?key=val%23'
+    
+# #17
+your goal is to send a GET request to /pentesterlab with the following GET parameter: key with the value please followed by a NULL Byte
+    %00
+
+# #18
+our goal is to send a GET request to /pentesterlab with the following GET parameter: key with the value please followed by a double-encoded NULL Byte
+
+# #20
+your goal is to send a GET request to /pentesterlab with the following GET parameter: key as a hash/dictionary
+    curl '{base}/page?name[key]=val'
+
+# #21
+your goal is to send a request with the method HACK to /pentesterlab
+    curl -X HACK
+
+# #24
+your goal is to send a request with the header X-Forwarded-Host set to pentesterlab.com to /pentesterlab.
+    curl {base}/page -H 'X-Forwarded-Host: val'
+
+# #25
+your goal is to send a GET request to /pentesterlab/../pentesterlab. By default, curl will canonicalize the path and only send /pentesterlab..
+        This type of request is extremely useful when testing application with multiple layers of reverse proxies. 
+    curl '{base}/page/../page' --path-as-is
+
+# #26
+
+    curl '{base}/page;page'
+
+# #27
+In this challenge, your goal is to send a GET request to /pentesterlab#pentesterlab
+    curl '<URL> --request-target '/pentesterlab#pentesterlab'
+
+# #28
+In this challenge, your goal is to send a request to /pentesterlab using HTTP multipart.
+    curl '<URL>' -F "file=@<file>.txt" --trace-ascii
+        -- where file can be blank
+
+# #29
+your goal is to send a request to /pentesterlab using HTTP multipart with a file (at least one byte in size) using the parameter name: filename
+    -- same as above but with text in file and 'filename=' instead of file
