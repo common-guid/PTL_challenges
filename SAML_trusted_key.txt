@@ -1,0 +1,31 @@
+# This exercise covers the exploitation of a service provider (SP) that doesn't check the certificate provided in the SAMLResponse
+# 
+#The attack
+#
+#Since the Service Provider does not check the certificate's fingerprint when verifying the SAMLResponse, attackers can provide their own certificate with a matching signature, and the application will trust the signature.
+#
+#To exploit this issue, you will need to:
+#
+#    Register an account on the IDP.
+#    Generate a private key and the matching certificate.
+#    Forge a SAMLResponse based on the SAMLRequest provided by the SP.
+#
+#Exploitation
+#
+#To perform this attack, you can use one of the following strategies:
+#
+#    Build your own SAMLResponse based on the SAMLResponse provided by the IDP (by tampering the data and resigning the message). This is probably the most complex way to do it as you will need to precisely understand how the signature is created.
+#    Build your own IDP that uses your private key (and certificate) and pass the SAMLRequest from the Service Provider to your malicious server to get the SAMLResponse that you can then pass to the Service Provider.
+#    Build or use a script that leverages a SAML library to build the SAMLResponse for you based on the SAMLRequest form the Service Provider and your private key and certificate.
+
+
+signup and logout. login and capture req with burp using SAML radier to intercept SAML XML
+
+generate our own key
+    openssl req -nodes -new -x509 -keyout key.pem -out cert.pem
+
+intercept and go to SAML radier cert extension and attempt to load cert and key
+    on error -> openssl rsa -in key.pem -text
+        this was you can copy the key into a text file for upload
+    change to admin in body
+    

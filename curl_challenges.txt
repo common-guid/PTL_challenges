@@ -65,9 +65,14 @@ In this challenge, your goal is to send a GET request to /pentesterlab#pentester
 
 # #28
 In this challenge, your goal is to send a request to /pentesterlab using HTTP multipart.
-    curl '<URL>' -F "file=@<file>.txt" --trace-ascii
+    curl '<URL>' -F "file=@<file>.txt" --trace-ascii -
         -- where file can be blank
 
 # #29
 your goal is to send a request to /pentesterlab using HTTP multipart with a file (at least one byte in size) using the parameter name: filename
     -- same as above but with text in file and 'filename=' instead of file
+
+# #30
+your goal is to send a request to /pentesterlab using HTTP multipart, with a file using the parameter name: filename.
+        filename must contain a directory traversal (../). useful when testing application with multiple layers of reverse proxies
+    curl '<url>' -F "filename=<file.txt>;filename=../>file.txt>"

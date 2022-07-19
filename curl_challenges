@@ -1,7 +1,0 @@
-# #27
-In this challenge, your goal is to send a GET request to /pentesterlab#pentesterlab
-    curl '<URL> --request-target '/pentesterlab#pentesterlab'
-
-# #28
-
-    curl '<URL> -F "file=@<file>.txt" --trace-ascii
