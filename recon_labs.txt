@@ -1,0 +1,22 @@
+#10 :: your goal is to use visual reconnaissance. You will need to find the website with the key in red.
+    create list of domains to iterate over
+        < for i in `seq 0 150`;do printf "0x%02x.a.hackycorp.com\n" $i; done >
+    use list created to dl images with curl
+        < for i in `cat ~/recon10_sites.txt`; do curl $i/logo.png -o $i.png \ done >
+    visually review the downloaded files
+
+#14 :: For this challenge, your goal is to perform a zone transfer on z.hackycorp.com.
+    get name of site dns server
+        < dig -t SOA {{site}} >
+    then use NS to request zone xfer
+        < dig AXFR {{site}} @{{NS}} >
+#15 :: For this challenge, your goal is to perform a zone transfer on the internal zone named: 
+        "int" using the nameserver of z.hackycorp.com.
+    get NS
+        < dig -t NS {{site}} >
+    ask for xfer from internal source
+        < dig AXFR in @{{site}} >
+#16 :: For this challenge, your goal is to get the version of bind used by z.hackycorp.com.
+    reuqest version from bind thu the 'chaosnet'
+        < dig chaos txt VERSION.BIND @{{site}} >
+#17 :: 
