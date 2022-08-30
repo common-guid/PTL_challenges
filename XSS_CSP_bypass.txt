@@ -1,0 +1,16 @@
+## challenge inspired by report Hackerone: https://hackerone.com/reports/153666
+
+CSP prevents inline JS
+
+found that the JS file running the clock allows for reflection
+    go to the uri of the JS file
+    view source to pp
+
+close paren to complete file name statement
+finish line with ;
+add in alert
+confirm reflection in JS file
+take entire uri to the uri parameter in chal uri
+    be mindful of closing out strings
+
+<BASE_URI>?<PARAM>=%3Cscript%20src=%22<JS_URI>);alert(%27%27);//%22%3E%3C/script%3E

@@ -1,0 +1,8 @@
+## identification
+    when signing in with oauth intercept the requests and review for a constant state
+    indicates likely state fixation that can be used again
+
+## exploitation
+    sign in with oauth and copy the url
+
+{{unfinished}}

@@ -86,3 +86,12 @@ send a POST request to /pentesterlab with the body of the request containing the
         where [VALUE] should be replaced with >please. The request should also set the header Content-Type to application/xml.
     curl "<url>" -H "Content-Type: application/xml" --data '<key><value>\>please</value></key>'
 
+# #34
+send a POST request to /pentesterlab with the body of the request containing the following XML: 
+        where [VALUE] should be replaced with <please>. The request should also set the header Content-Type to application/xml.
+    curl "<url>" -H "Content-Type: application/xml" --data '<key><value>&lt;please&gt;</value></key>'
+
+# #35
+send a POST request to /pentesterlab with the body of the request containing the following XML: <key><value>[VALUE]</value></key>
+        where [VALUE] should be replaced with &please.
+    curl -v '<URL>' --data '<key><value>&amp;please</value></key>' -H "Content-Type: application/xml"
